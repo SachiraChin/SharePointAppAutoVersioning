@@ -129,6 +129,10 @@ namespace SharePointAppAutoVersioning
             if (CommandLine.Parser.Default.ParseArguments(args, options))
             {
                 options.BasePath = options.BasePath ?? Environment.CurrentDirectory + "\\";
+                Console.WriteLine();
+                Console.WriteLine("Options: ");
+                options.WriteToConsole();
+                Console.WriteLine();
             }
             else
             {
