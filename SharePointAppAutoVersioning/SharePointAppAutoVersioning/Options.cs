@@ -1,3 +1,4 @@
+using System;
 using CommandLine;
 using CommandLine.Text;
 
@@ -14,7 +15,7 @@ namespace SharePointAppAutoVersioning
                                                           "AppPackageAndWsp: Update app package and create sandbox solution", DefaultValue = "AppPackage")]
         public string Mode { get; set; }
 
-        [Option('b', "build-config", Required = false, HelpText = "Application build configuration. Can be taken from $(Configuration) MSBUILD paramater.", DefaultValue = "Release")]
+        [Option('b', "build-config", Required = false, HelpText = "Application build configuration. Can be taken from $(Configuration) MSBUILD paramater.", DefaultValue = "Debug")]
         public string BuildConfig { get; set; }
 
         [Option('j', "build-js", Required = false, HelpText = "Build JavaScript file to use in versioning for client side versioning. This will work with parameters --js-path and --js-class.", DefaultValue = false)]
@@ -28,6 +29,7 @@ namespace SharePointAppAutoVersioning
         
         [Option("versioning-lib", Required = false, HelpText = "Library used to get build version.", DefaultValue = "AutoIncrementBuildVersion.dll")]
         public string VersioningLibrary { get; set; }
+
         [Option("versioning-class", Required = false, HelpText = "Full path of class in versioning library.", DefaultValue = "SharePointAppAutoVersioning.AutoIncrementBuildVersion.VersionProvider")]
         public string VersioningClass { get; set; }
 
@@ -38,5 +40,16 @@ namespace SharePointAppAutoVersioning
                 (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
         }
 
+        public void WriteToConsole()
+        {
+            Console.WriteLine($"BasePath: {BasePath}");
+            Console.WriteLine($"Mode: {Mode}");
+            Console.WriteLine($"BuildConfig: {BuildConfig}");
+            Console.WriteLine($"BuildJs: {BuildJs}");
+            Console.WriteLine($"JsPath: {JsPath}");
+            Console.WriteLine($"JsClass: {JsClass}");
+            Console.WriteLine($"VersioningLibrary: {VersioningLibrary}");
+            Console.WriteLine($"VersioningClass: {VersioningClass}");
+        }
     }
 }
