@@ -10,9 +10,9 @@ namespace SharePointAppAutoVersioning
         public string BasePath { get; set; }
 
         [Option('m', "mode", Required = false, HelpText = "Mode of the application running. " +
-                                                          "AppPackage: Increases the version of application package(.app)" +
-                                                          "Wsp: Build a sandbox compatible package with feature versioning" +
-                                                          "AppPackageAndWsp: Update app package and create sandbox solution", DefaultValue = "AppPackage")]
+                                                          " [AppPackage: Increases the version of application package(.app)]" +
+                                                          " [Wsp: Build a sandbox compatible package with feature versioning]" +
+                                                          " [AppPackageAndWsp: Update app package and create sandbox solution]", DefaultValue = "AppPackage")]
         public string Mode { get; set; }
 
         [Option('b', "build-config", Required = false, HelpText = "Application build configuration. Can be taken from $(Configuration) MSBUILD paramater.", DefaultValue = "Debug")]
