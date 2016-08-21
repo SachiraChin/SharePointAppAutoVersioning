@@ -71,6 +71,10 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>DEL $(ProjectDir)..\..\Binaries\spav-$(Configuration).zip
+$(ProjectDir)7zip\7za.exe a -tzip $(ProjectDir)..\..\Binaries\spav-$(Configuration).zip $(ProjectDir)..\bin\$(Configuration)\**</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
