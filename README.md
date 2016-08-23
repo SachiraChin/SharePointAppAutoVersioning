@@ -119,3 +119,5 @@ Lets assume that dll from your project is ```ContosoApp.CustomBuildVersion.dll``
 ```
 $(ProjectDir)spav\spav.exe -p $(ProjectDir) -m AppPackageAndWsp -b $(Configuration) --versioning-lib ContosoApp.CustomBuildVersion.dll --versioning-class ContosoApp.CustomBuildVersion.VersionProvider
 ```
+
+I am open for new features, fixes and versioning providers which can be used in different scenarios for this application. Fork it, change it and send pull request to me, I will make sure it'll won't get unnoticed. :)
