@@ -6,13 +6,13 @@ namespace SharePointAppAutoVersioning
 {
     class Options
     {
-        [Option('p', "path", Required = false, HelpText = "Directory of application project. Default: Application working directory.", DefaultValue = null)]
+        [Option('p', "path", Required = true, HelpText = "Directory of application project. Can be taken from $(ProjectDir) MSBUILD parameter.")]
         public string BasePath { get; set; }
 
-        [Option('m', "mode", Required = false, HelpText = "Mode of the application running. " +
+        [Option('m', "mode", Required = true, HelpText = "Running mode. " +
                                                           " [AppPackage: Increases the version of application package(.app)]" +
                                                           " [Wsp: Build a sandbox compatible package with feature versioning]" +
-                                                          " [AppPackageAndWsp: Update app package and create sandbox solution]", DefaultValue = "AppPackage")]
+                                                          " [AppPackageAndWsp: Update app package and create sandbox solution]")]
         public string Mode { get; set; }
 
         [Option('b', "build-config", Required = false, HelpText = "Application build configuration. Can be taken from $(Configuration) MSBUILD paramater.", DefaultValue = "Debug")]
@@ -24,7 +24,7 @@ namespace SharePointAppAutoVersioning
         [Option("js-path", Required = false, HelpText = "Save path for JavaScript file. Default: {BasePath}\\applicationVersion.js", DefaultValue = null)]
         public string JsPath { get; set; }
 
-        [Option("js-class", Required = false, HelpText = "Class to contain application version.", DefaultValue = "appVersion")]
+        [Option("js-class", Required = false, HelpText = "JavaScript namespace to contain application version.", DefaultValue = "appVersion")]
         public string JsClass { get; set; }
         
         [Option("versioning-lib", Required = false, HelpText = "Library used to get build version.", DefaultValue = "AutoIncrementBuildVersion.dll")]

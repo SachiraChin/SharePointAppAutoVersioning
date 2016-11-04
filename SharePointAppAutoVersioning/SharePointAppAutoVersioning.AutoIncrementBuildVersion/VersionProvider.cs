@@ -18,7 +18,7 @@ namespace SharePointAppAutoVersioning.AutoIncrementBuildVersion
             {
                 Major = oldVersion.Major,
                 Minor = oldVersion.Minor,
-                Patch = oldVersion.Patch + DateTime.UtcNow.Date.Subtract(oldVersion.BuildDate.UtcDateTime.Date).Days,
+                Patch = oldVersion.Patch, //oldVersion.Patch + DateTime.UtcNow.Date.Subtract(oldVersion.BuildDate.UtcDateTime.Date).Days,
                 Build = oldVersion.Build + 1,
                 BuildDate = DateTimeOffset.Now
             };
